@@ -8,19 +8,16 @@
 <body>
   <h1>Vue3</h1>
   <div id="app">
-      <div v-html="message"></div>
+  <pre>
+      {{ data.map((value, index) => index + ' : 「' + value + '」').join('\n') }}
+  </pre>
   </div>
   <script>
-      const list = ['One', 'Two', 'Three']
+      const data = ['Windows', 'macOS', 'Linux', 'iOS', 'Android']
       const appdata = {
           data() {
               return {
-                  message: `
-                <ul>
-                    <li>${list[0]}</li>
-                    <li>${list[1]}</li>
-                    <li>${list[2]}</li>
-                </ul>`
+                  data:data
               }
           }
       }
