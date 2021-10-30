@@ -12,11 +12,24 @@
 <body>
   <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
   <div id="app" class="container">
-    <p>※Cardを利用したカード型コンテンツの表示例</p>
-      <div class="card m-4 p-4" style="width: 18rem;">
-          <h5 class="card-title">Contents</h5>
-          <p class="card-text">{{ message }}</p>
-      </div>
+    <p>※フォームの表示例</p>
+      <form action="">
+          <div class="form-group">
+              <label for="id">ID</label>
+              <input type="text" class="form-control" id="id" placeholder="IDを入力">
+              <small class="form-text">あなたのIDを入力してください。</small>
+          </div>
+          <div class="form-group">
+              <label for="pass">Password</label>
+              <input type="password" class="form-control" id="pass" placeholder="パスワードを入力してください。">
+              <small class="form-text">パスワードを入力してください。</small>
+          </div>
+          <div class="form-group">
+              <input type="checkbox" class="form-check-input" id="check">
+              <label for="check" class="form-check-label">Check Box</label>
+          </div>
+          <button class="btn btn-primary">送信</button>
+      </form>
   </div>
   <script>
       const appdata = {
