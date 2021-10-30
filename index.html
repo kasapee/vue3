@@ -12,9 +12,11 @@
 <body>
   <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
   <div id="app" class="container">
-  <pre>
-      {{ message }}
-  </pre>
+    <p>※Cardを利用したカード型コンテンツの表示例</p>
+      <div class="card m-4 p-4" style="width: 18rem;">
+          <h5 class="card-title">Contents</h5>
+          <p class="card-text">{{ message }}</p>
+      </div>
   </div>
   <script>
       const appdata = {
