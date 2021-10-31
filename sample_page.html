@@ -10,20 +10,41 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
+<style>
+    .red {
+        font-size: 32pt;
+        font-weight: plain;
+        font-style: normal;
+        color: red;
+    }
+    .blue {
+        font-size: 24pt;
+        font-weight: bold;
+        font-style: italic;
+        color: blue;
+    }
+</style>
 <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
 <div id="app" class="container">
-    <p v-bind:style="style">{{ message }}</p>
+    <p v-bind:class="{red:isRed, blue:isBlue}">
+        {{ message }}
+    </p>
 </div>
 <script>
     const appdata = {
         data() {
             return {
                 message:null,
-                style:'font-size:32pt; color:red;'
+                isRed:'ture',
+                isBlue:false
             }
         },
         mounted() {
-            this.message = 'This is sample page'
+            this.message = 'This is sample page.'
+            setInterval(() => {
+                this.isBlue = !this.isBlue
+                this.isRed = !this.isRed
+            }, 1000)
         }
     }
     let app = Vue.createApp(appdata)
