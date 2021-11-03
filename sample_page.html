@@ -10,33 +10,47 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
-<style>
-    .ok {
-        font-size: 24pt;
-        padding: 5px 10px;
-        border: 2px solid red;
-        color: blue;
-    }
-    .ng {
-        font-size: 20pt;
-        color: gray;
-    }
-</style>
 <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
 <div id="app" class="container">
-    <p v-if="flag" class="ok">
-        {{ message }}
-    </p>
-    <p v-else class="ng">
-        ※現在、問題が発生中です....
-    </p>
+    <template v-if="flag">
+        <p>※データを表示する</p>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Tel</th>
+                </tr>
+            </thead>
+            <tr v-for="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.mail}}</td>
+                <td>{{item.tel}}</td>
+            </tr>
+        </table>
+    </template>
+    <template v-else>
+        <p>※データをリスト表示する</p>
+        <ul class="list-group">
+            <li class="list-group-item">Taroのアドレスは、taro@yamada</li>
+            <li class="list-group-item">Hanakoのアドレスは、hanako@flower</li>
+            <li class="list-group-item">Sachikoのアドレスは、shchiko@happy</li>
+        </ul>
+    </template>
 </div>
 <script>
+    const items = [
+        {name:'Taro', mail:'taro@yamada', tel:'000-000'},
+        {name:'Hanako', mail:'hanako@flower', tel:'111-111'},
+        {name:'Sachiko', mail:'sachiko@happy', tel:'222-222'},
+        {name:'Jiro', mail:'jiro@change', tel:'333-333'}
+    ]
     const appdata = {
         data() {
             return {
                 message : 'This is sample page.',
-                flag : true
+                flag : true,
+                items : items
             }
         },
         mounted() {
