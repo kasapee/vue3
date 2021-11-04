@@ -13,51 +13,48 @@
 <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
 <div id="app" class="container">
     <template v-if="flag">
-        <p>※データを表示する</p>
+        <p>{{message}}</p>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Mail</th>
                     <th>Tel</th>
                 </tr>
             </thead>
-            <tr v-for="(item, key) in items">
-                <td>{{key}}</td>
-                <td>{{item.mail}}</td>
-                <td>{{item.tel}}</td>
-            </tr>
+            <template v-for="(item, index) in items">
+                <tr v-if="index % 2 == 0">
+                    <td>{{index}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.mail}}</td>
+                    <td>{{item.tel}}</td>
+                </tr>
+                <tr v-else>
+                    <td>***</td>
+                    <td>***非公開***</td>
+                    <td>***非公開***</td>
+                    <td>***非公開***</td>
+                </tr>
+            </template>
         </table>
-    </template>
-    <template v-else>
-        <p>※データをリスト表示する</p>
-        <ul class="list-group">
-            <li class="list-group-item">Taroのアドレスは、taro@yamada</li>
-            <li class="list-group-item">Hanakoのアドレスは、hanako@flower</li>
-            <li class="list-group-item">Sachikoのアドレスは、shchiko@happy</li>
-        </ul>
     </template>
 </div>
 <script>
-    const items = {
-        Taro: {mail:'taro@yamada', tel:'000-000'},
-        Hanako: {mail:'hanako@flower', tel:'111-111'},
-        Sachiko: {mail:'sachiko@happy', tel:'222-222'},
-        Jiro: {mail:'jiro@change', tel:'333-333'}
-    }
+    const items = [
+        {name: 'Taro', mail:'taro@yamada', tel:'000-000'},
+        {name: 'Hanako', mail:'hanako@flower', tel:'111-111'},
+        {name: 'Sachiko', mail:'sachiko@happy', tel:'222-222'},
+        {name: 'Jiro', mail:'jiro@change', tel:'333-333'}
+    ]
     const appdata = {
         data() {
             return {
-                message : 'This is sample page.',
+                message : 'データをテーブル表示する',
                 flag : true,
                 items : items
             }
         },
-        mounted() {
-            setInterval(() => {
-                this.flag = !this.flag
-            }, 3000)
-        }
     }
     let app = Vue.createApp(appdata)
     app.mount('#app')
