@@ -20,7 +20,6 @@
           data() {
               return {
                   message:'※コンポーネントを表示する',
-                  name: 'no-name'
               }
           },
       }
@@ -28,27 +27,25 @@
       app.component('hello', {
           data() {
               return {
-                  counter: 0,
-                  isInfo: true,
-                  isDark: false
+                  num: 0,
+                  message: 'type a number'
               }
           },
           methods: {
-              doAction() {
-                  this.counter++
-                  console.log("counter")
-                  if (this.counter % 2 == 0) {
-                      this.isInfo = true
-                      this.isDark = false
-                      console.log("true")
-                  } else {
-                      this.isInfo = false
-                      this.isDark = true
-                      console.log("false")
+              calc() {
+                  var total = 0
+                  for (var i = 1; i <= this.num; i++) {
+                    total += 1
                   }
+                  this.message = "total:" + total
               }
           },
-          template: '<p v-on:click="doAction" v-bind:class="{\'alert-warning\':isInfo, \'alert-dark\':isDark}" class="alert">Clicked: {{counter}}.</p>'
+          template: `<div>
+            <p class="alert alert-info h4">{{message}}</p>
+            <div>
+              <input type="number" class="form-control" v-on:input="calc" v-model="num">
+            </div>
+          </div>`
       })
       app.mount('#app')
   </script>
