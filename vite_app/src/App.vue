@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld v-bind:title="message" />
+    <HelloWorld v-bind:title="message" v-on:result-event="appAction"/>
     <hr>
-    <button class="btn btn-primary" v-on:click="doAction">Change Title</button>
+    <p>{{result}}</p>
   </div>
 </template>
 
@@ -17,13 +17,13 @@ export default {
   },
   data() {
     return {
-      message: 'HELLO'
+      message: 'HELLO',
+      result: 'no event'
     }
   },
   methods: {
-    doAction() {
-      var input = prompt("new title:")
-      this.message = input
+    appAction(message) {
+      this.result = '(*** you send:"' + message + '". ***)'
     }
   }
 }
