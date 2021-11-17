@@ -6,11 +6,11 @@
       <hr>
       <div>
         <div class="form-group">
-          <label>Formula:<label>
-            <textarea name="" id="" cols="30" rows="10" class="form-control mb-2" v-model="fomula"></textarea>
-        </div>
-        <div class="text-center">
-          <button class="btn btn-primary" v-on:click="doAction">CALC</button>
+          <label>Fomula:</label>
+            <textarea class="form-control mb-2" v-model="fomula"></textarea>
+          <div class="text-center">
+            <button class="btn btn-primary" v-on:click="doAction">CALC</button>
+          </div>
         </div>
       </div>
     </div>
@@ -19,9 +19,9 @@
 
 <script>
 export default {
-  name: "Calc",
+  name: 'Calc',
   props: {
-    title: String
+    title: String,
   },
   data() {
     return {
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     doAction() {
-      let arr = this.formula.trim().split('\n')
+      let arr = this.fomula.trim().split('\n')
       let last = arr.pop()
       let fn = ''
       for (let n in arr) {
@@ -40,7 +40,7 @@ export default {
         }
       }
       fn += 'return ' + last + ';'
-      let exp = 'function f(){' + fn +'} f();'
+      let exp = 'function f(){' + fn + '} f();'
       let ans = eval(exp)
       this.message = 'answer: ' + ans
       let re = arr.join(';').trim()
