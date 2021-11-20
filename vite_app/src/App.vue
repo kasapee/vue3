@@ -1,19 +1,24 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloJSX title="OK, Vue3" message="※属性で設定したメッセージ。"/>
+    <HelloWorld v-bind:title="message" v-bind:num="num"></HelloWorld>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 import HelloJSX from './components/HelloJSX.jsx'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-    HelloJSX
+    HelloWorld,
+  },
+  data() {
+    return {
+      message: 'validate',
+      num: 123
+    }
   }
 }
 </script>
