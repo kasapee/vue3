@@ -13,7 +13,6 @@ export default {
   name: 'HelloWorld',
   props: {
     title: String,
-    msg: String
   },
   setup(props, context) {
     const data = reactive({
