@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld title="Composition API" />
+    <HelloWorld title="Composition API" msg="This is Composition Sample."/>
 <!--    <HelloJSX title="Composition API JSX" msg="This is Composition API JSX"/>-->
   </div>
 </template>
