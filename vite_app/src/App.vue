@@ -1,24 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld v-bind:title="message" v-bind:num="num"></HelloWorld>
+    <HelloWorld title="Composition API" msg="This is Composition API sample" />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import HelloJSX from './components/HelloJSX.jsx'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
   },
-  data() {
-    return {
-      message: 'validate',
-      num: 123
-    }
-  }
 }
 </script>
