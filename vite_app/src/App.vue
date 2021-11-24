@@ -1,20 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld title="Composition API" msg="This is Composition Sample."/>
-<!--    <HelloJSX title="Composition API JSX" msg="This is Composition API JSX"/>-->
+<div id="app">
+  <div>
+    <div>
+      <img alt="Vue logo" src="./assets/logo.png" />
+    </div>
+    <router-link to="/" class="btn btn-primary mx-2">Go to Top</router-link>
+    <router-link to="/jsx" class="btn btn-warning">Go to JSX</router-link>
   </div>
+  <hr>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-// import HelloJSX from './components/HelloJSX.jsx'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-    // HelloJSX
+  name: "App",
+  created() {
+    console.log("***** App Created! *****")
   },
+  mounted() {
+    console.log("----- App Mounted! -----")
+  },
+  setup() {
+    return {
+      title: 'Router'
+    }
+  }
+
 }
 </script>
+
+<style scoped>
+
+</style>

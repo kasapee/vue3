@@ -1,8 +1,7 @@
 <template>
   <div class="alert alert-info">
-    <h1>{{ title }}</h1>
+    <h1>{{ data.title }}</h1>
     <p class="h5">{{ data.msg }}</p>
-
   </div>
 </template>
 
@@ -16,10 +15,9 @@ export default {
   },
   setup(props, context) {
     const data = reactive({
-      msg: 'This is ref-value!',
-      num: 0
+      title: 'HelloWorld',
+      msg: 'This is HelloWorld component',
     })
-    data.msg = context.attrs['msg'].toUpperCase()
     return {
       data
     }
