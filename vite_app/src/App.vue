@@ -4,15 +4,11 @@
     <div>
       <img alt="Vue logo" src="./assets/logo.png" />
     </div>
-    <router-link to="/" class="btn btn-primary mx-2">Go to Top</router-link>
-    <router-link to="/jsx" class="btn btn-warning">Go to JSX</router-link>
+    <router-link to="/index/taro" class="btn btn-primary mx-2">Go to Top</router-link>
+    <router-link to="/jsx/hanako" class="btn btn-warning">Go to JSX</router-link>
   </div>
   <hr>
-  <h5> default view </h5>
-  <router-view/>
-  <h5> A & B </h5>
-  <router-view name="first"/>
-  <router-view name="second"/>
+  <router-view></router-view>
 </div>
 </template>
 
