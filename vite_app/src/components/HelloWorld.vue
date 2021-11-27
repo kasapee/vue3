@@ -5,9 +5,10 @@
   </div>
   <hr>
   <div class="btn btn-secondary"
-    @click="$store.commit('count')"
-    @click.ctrl="$store.commit('reset')">
-    <a class="h5">clicked: {{$store.state.counter}}</a>
+    @click.exact="$store.commit('count', 1)"
+       @click.shift="$store.commit('count', 2)"
+       @click.ctrl="$store.commit('count', 3)">
+    <a class="h5" @click.stop="$store.commit('reset')">clicked: {{$store.state.counter}}</a>
   </div>
 </template>
 
