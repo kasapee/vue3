@@ -1,20 +1,29 @@
 import { createStore } from 'vuex'
 
 export const store = createStore({
-    state() {
+    state: () =>  {
         return {
-            message: 'This is store data.',
+            message: 'Count Number',
             counter: 0
         }
     },
     mutations: {
-        count: (state, obj)=> {
-            state.message = obj.message
-            state.counter += obj.add
+        count: (state, n)=> {
+            state.counter += n
         },
-        reset: (state)=> {
-            state.message = 'reset!'
+        say: (state, msg)=> {
+            state.message = msg
+        },
+        reset: (state) => {
             state.counter = 0
+            state.msg = 'reset!'
         }
     },
+    actions: {
+        doit: (context) => {
+            let n = Math.floor(Math.random() * 10)
+            context.commit('count', n)
+            context.commit('say', 'add' + n + '!')
+        }
+    }
 })
